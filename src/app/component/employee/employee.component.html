@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Employee Form</h2>
+  <hr />
+  <form [formGroup]="employeeForm" (ngSubmit)="submitEmployee()">
+    <div *ngIf="formMessage !=''">
+      <p class="alert alert-info" role="alert">{{formMessage}}</p>
+    </div>
+    <input type="text"  formControlName="name" [(ngModel)]="employee.name" id="name" aria-describedby="name" placeholder="Enter name" class="form-control col-4 mb-4" required />
+    <input type="email"  formControlName="email" [(ngModel)]="employee.email" id="email" aria-describedby="email" placeholder="Enter email" class="form-control col-4 mb-4" required />
+    <input type="text"  formControlName="department" [(ngModel)]="employee.department" id="department" aria-describedby="department" placeholder="Enter department" class="form-control col-4 mb-4" required />
+    <button class="btn btn-primary" type="submit">Save</button>
+  </form>
+  <hr/>
+  <a [routerLink] = "['']"  class="btn btn-secondary ">Back to list</a>
+</div>

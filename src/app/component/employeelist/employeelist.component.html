@@ -1,0 +1,28 @@
+<div class="container">
+  <h3>List Employees</h3>
+  <hr/>
+  <a [routerLink] = "['/employee']" class="btn btn-primary mb-3">Add Employee</a>
+  <table class="table table-bordered table-striped" id="employees-table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Department</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employeeList">
+      <td>{{employee.name}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.department}}</td>
+      <td>
+        <div class="d-grid gap-2 d-md-flex">
+        <a [routerLink] = "['/employee/',employee.id]" class="btn btn-info">Update</a>
+        <a (click)="deleteEmployee(employee.id)" class="btn btn-danger ">Delete</a>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
